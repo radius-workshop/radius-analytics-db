@@ -1,0 +1,23 @@
+{
+  "name": "radius-analytics-db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "dev:scheduled": "wrangler dev --test-scheduled",
+    "indexer:run:local": "curl -fsS --max-time 120 -X POST \"http://localhost:8787/api/v1/indexer/run?network=all&strategy=logs&max_scan_ms=5000&initial_backfill_ms=5000\"",
+    "indexer:run:local:testnet": "curl -fsS --max-time 120 -X POST \"http://localhost:8787/api/v1/indexer/run?network=testnet&strategy=logs&max_scan_ms=5000&initial_backfill_ms=5000\"",
+    "indexer:run:local:mainnet": "curl -fsS --max-time 120 -X POST \"http://localhost:8787/api/v1/indexer/run?network=mainnet&strategy=logs&max_scan_ms=5000&initial_backfill_ms=5000\"",
+    "indexer:run:local:full": "curl -fsS --max-time 120 -X POST \"http://localhost:8787/api/v1/indexer/run?network=all&strategy=blocks\"",
+    "indexer:scheduled:local": "curl -fsS \"http://localhost:8787/__scheduled?cron=*+*+*+*+*\"",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply radius-analytics --local",
+    "db:migrate:remote": "wrangler d1 migrations apply radius-analytics --remote",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260515.0",
+    "wrangler": "^4.16.0"
+  }
+}

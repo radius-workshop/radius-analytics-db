@@ -1,0 +1,25 @@
+name = "radius-analytics-db"
+main = "src/index.js"
+compatibility_date = "2026-05-19"
+
+[triggers]
+crons = ["* * * * *"]
+
+[vars]
+INDEXER_NETWORKS = "testnet,mainnet"
+INDEXER_ENABLED = "true"
+INDEXER_STRATEGY = "logs"
+RADIUS_TESTNET_RPC_URL = "https://rpc.testnet.radiustech.xyz"
+RADIUS_MAINNET_RPC_URL = "https://rpc.radiustech.xyz"
+INDEXER_FINALITY_LAG_MS = "2000"
+INDEXER_INITIAL_BACKFILL_MS = "60000"
+INDEXER_MAX_SCAN_MS = "60000"
+INDEXER_BLOCK_BATCH_SIZE = "3000"
+INDEXER_BLOCK_BATCH_CONCURRENCY = "8"
+INDEXER_RECEIPT_BATCH_SIZE = "200"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "radius-analytics"
+database_id = "8647cec0-b65c-4b50-8306-f42a073ccbd5"
+preview_database_id = "8647cec0-b65c-4b50-8306-f42a073ccbd5"
