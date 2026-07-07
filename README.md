@@ -213,3 +213,7 @@ Use this to support signup-to-first-transaction reporting:
 Radius has sub-second finality and no Ethereum-style reorg window, so the indexer does not wait for multiple confirmations. Receipt `status = 1` remains the source of truth.
 
 D1 stores decimal wei sums as text to avoid 64-bit integer overflow. The service updates those sums in application code. At production throughput, feed D1 pre-aggregated deltas and keep exact raw facts in the analytical store.
+
+---
+
+> ⚠️ **Demo code — not production-ready.** Provided as-is, without warranty, and may contain known, unpatched vulnerabilities (including in dependencies). If you reuse it, run your own security and supply-chain scans and patch before deploying.
